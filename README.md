@@ -115,3 +115,5 @@ To rectify this situation, I carefully examined the relationships between the ta
 
 In summary, my process involved initially altering the primary keys and foreign keys, acknowledging the resultant loss of connections, and subsequently re-establishing and refining these connections through meticulous updates to the tables. This iterative approach allowed me to maintain the consistency and reliability of the database while addressing the initial concerns of avoiding duplicate entries.
 
+I used queries to alter tables in the 'tables-superstore-shuka' file, primarily modifying primary and foreign keys for data integrity.
+
