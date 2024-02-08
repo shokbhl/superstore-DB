@@ -106,3 +106,12 @@ shipping table:
 Relation: orderid and shipping_id in orders are Foreign Keys referencing shipping(orderid, shipping_id) (Unique constraint on (orderid, shipping_id) in shipping table).
 Explanation: The orders table is associated with the shipping table through the combination of orderid and shipping_id. This relationship uniquely identifies the shipping details for each order.	 
 
+-----------
+NOTICE : 
+----------
+After initially creating tables, I identified the need for modifications to the primary keys and foreign keys to prevent duplication issues. Consequently, I decided to alter the tables to address these concerns. However, this modification led to the unintentional loss of certain connections between the tables.
+
+To rectify this situation, I carefully examined the relationships between the tables and made the necessary adjustments. This involved updating the tables to establish new connections and ensuring that the alterations maintained the integrity of the database structure. By doing so, I aimed to reconcile any lost connections and create a coherent and well-defined relational database.
+
+In summary, my process involved initially altering the primary keys and foreign keys, acknowledging the resultant loss of connections, and subsequently re-establishing and refining these connections through meticulous updates to the tables. This iterative approach allowed me to maintain the consistency and reliability of the database while addressing the initial concerns of avoiding duplicate entries.
+
