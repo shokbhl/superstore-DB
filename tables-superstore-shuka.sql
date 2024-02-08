@@ -1,4 +1,6 @@
-
+	
+-- Table ORDERS --------
+		
 CREATE TABLE Orders (
   row_id int DEFAULT NULL,
   OrderID int NOT NULL,
@@ -38,6 +40,7 @@ CREATE TABLE Orders (
     ON UPDATE NO ACTION
 );
 	
+-- Table returned --------
 
 	 CREATE TABLE returned (
         returnID integer,
@@ -47,13 +50,16 @@ CREATE TABLE Orders (
         FOREIGN KEY (OrderID)
          REFERENCES Orders (OrderID));
     
-	
+	returne
 	CREATE TABLE product_categories (
         categoryid     integer,
         category        varchar(60) NOT NULL,
         sub_category    varchar(100) NOT NULL,
         PRIMARY KEY (categoryid)
     );
+
+-- Table Products --------
+
 	CREATE TABLE Products (
   ProductID integer NOT NULL,
   ProductName VARCHAR(255) NOT NULL,
@@ -65,6 +71,8 @@ CREATE TABLE Orders (
   product_base_margin numeric(5,2),
   PRIMARY KEY (ProductID),
   FOREIGN KEY (CategoryID) REFERENCES product_categories(CategoryID));
+
+-- Table customers --------
 	
 	CREATE TABLE customers (
         customerid   integer Not Null,
@@ -76,7 +84,7 @@ CREATE TABLE Orders (
         FOREIGN KEY (zipcode, city) REFERENCES addresses(zipcode, city)
     );
 	
-	- -----------------------------------------------------
+	
 -- Table Address
 -- -----------------------------------------------------
 CREATE TABLE addresses (
@@ -93,13 +101,15 @@ ALTER TABLE addresses
 ADD COLUMN Country varchar(40) NOT NULL; 
 ALTER TABLE addresses
 ADD COLUMN region varchar(40) NOT NULL; 
+
 	
+-- Table managers
 	CREATE TABLE managers (
         manager_id integer,
         manager    varchar(50) NOT NULL,
         PRIMARY KEY (manager_id)
     );    
-    
+   -- Table regions 
     CREATE TABLE regions (
         region_id  integer,
         region     varchar(15) NOT NULL,
@@ -107,7 +117,7 @@ ADD COLUMN region varchar(40) NOT NULL;
         PRIMARY KEY (region_id),
         FOREIGN KEY (manager_id) REFERENCES managers(manager_id)
     );
--- -----------------------------------------------------
+
 -- Table Shipping
 -- -----------------------------------------------------
 CREATE TABLE Shipping (
@@ -123,6 +133,9 @@ CREATE TABLE Shipping (
  FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id),
  FOREIGN KEY (OrderID) REFERENCES Orders (OrderID),
  FOREIGN KEY (zipcode, city) REFERENCES addresses (zipcode, city));
+
+-- Table transactions
+-- -----------------------------------------------------
  
 CREATE TABLE transactions (
         transaction_id   integer,
@@ -140,6 +153,9 @@ CREATE TABLE transactions (
         FOREIGN KEY (customerid) REFERENCES customers(customerid),
 	FOREIGN KEY (orderid) REFERENCES orders(orderid)
     );
+
+-- Table Sales
+-- -----------------------------------------------------
 	
 CREATE TABLE  Sales (
   OrderID int NOT NULL,
@@ -302,11 +318,6 @@ ALTER TABLE public.returned
 DROP CONSTRAINT returned_pkey;
 
 -- Add a new primary key constraint (if needed) or remove the primary key constraint on productid
--- If you want to keep a primary key, you can add a new column as a surrogate key
--- If you want to remove the primary key entirely, you can skip the following line
--- ALTER TABLE public.returned ADD CONSTRAINT returned_new_pkey PRIMARY KEY (returnid);
-
--- If you want to keep a unique constraint on returnid and productid, you can add it here
 -- ALTER TABLE public.returned ADD CONSTRAINT returned_unique_constraint UNIQUE (returnid, productid);
 	
 	
