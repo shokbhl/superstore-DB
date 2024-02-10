@@ -49,8 +49,9 @@ CREATE TABLE Orders (
         PRIMARY KEY (returnID),
         FOREIGN KEY (OrderID)
          REFERENCES Orders (OrderID));
-    
-	returne
+
+    -- Table  product_categories --------
+	
 	CREATE TABLE product_categories (
         categoryid     integer,
         category        varchar(60) NOT NULL,
